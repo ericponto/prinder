@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="css/ionics.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://www.principalcdn.com/css/edgeui/v1/edgeui.min.css">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+
+    <script src="lib/collide/collide.js"></script>
+    <script src="lib/ionic-contrib-tinder-cards/ionic.tdcards.js"></script>
+  </head>
+  <body ng-app="starter"  no-scroll>
+
+    <ion-pane ng-controller="CardsCtrl">
+        <ion-header-bar class="bar-positive">
+            <h1 class="title" style="text-align:left">prinder</h1>
+        </ion-header-bar>
+
+        <td-cards>
+            <td-card id="td-card" ng-repeat="card in cards" on-destroy="cardDestroyed($index)"
+            on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight($index)"
+            on-partial-swipe="cardPartialSwipe(amt)">
+                <div class="image">
+                    <div class="no-text overlayBox"><div class="noBox boxed">Nope</div></div>
+                    <img ng-src="{{card.image}}">
+                    <div class="yes-text overlayBox"><div class="yesBox boxed" id="centerMe">Yes</div></div>
+                </div>
+                <div class="title">
+                    <div style="float:right; color: #999;" class="text-light">
+                      <i class="fa fa-users"></i> 10
+                      <i class="fa fa-columns"></i> 2
+                    </div>
+                    {{card.name}}, <span class="text-light">{{card.title}}</span>
+                </div>
+            </td-card>
+        </td-cards>
+
+        <div class="padding" style="margin-top: 550px; text-align: center;">
+          <div class="circle">
+            <i class="fa fa-close assertive"></i>
+          </div><div class="circle circle-small">
+            <i class="fa fa-info calm"></i>
+          </div><div class="circle">
+            <i class="fa fa-heart balanced"></i>
+          </div>
+        </div>
+    </ion-pane>
+  </body>
+</html>
