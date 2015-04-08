@@ -32,18 +32,21 @@ angular.module('starter', ['ionic', 'ionic.contrib.ui.tinderCards'])
 .controller('CardsCtrl', function($scope) {
     var cardTypes = [
         { image: 'img/larry.jpg', name: 'Larry', title: 'CEO'},
-        { image: 'img/dan.jpg', name: 'Dan', title: 'COO'}
+        { image: 'img/dan.jpg', name: 'Dan', title: 'COO'},
+        { image: 'img/gary.png', name: 'Gary', title: 'CIO'},
+        { image: 'img/chuck.jpg', name: 'Chuck', title: 'CAT'},
+        { image: 'img/brad.jpg', name: 'Brad', title: 'COOL'}
     ];
  
     $scope.cards = [];
  
     $scope.addCard = function(i) {
-        var newCard = cardTypes[Math.floor(Math.random() * cardTypes.length)];
+        var newCard = cardTypes[i];
         newCard.id = Math.random();
         $scope.cards.push(angular.extend({}, newCard));
     }
  
-    for(var i = 0; i < 3; i++) $scope.addCard();
+    for(var i = 0; i < 5; i++) $scope.addCard(i);
  
     $scope.cardSwipedLeft = function(index) {
         console.log('Left swipe');
